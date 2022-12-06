@@ -1,13 +1,19 @@
 .header {
-  padding: 28px 0;
-
-  background-color: $color-neon-blue;
-
-  .container {
-    display: flex;
-  }
+  padding: 30px 0;
 
   &__logo {
     color: $color-default-white;
   }
 }
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .header__btn {
+//   @media (max-width: $vp-320) {
+//     display: none;
+//   }
+// }
+

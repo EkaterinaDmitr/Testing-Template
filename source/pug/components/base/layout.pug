@@ -1,35 +1,28 @@
 doctype html
 
-include ../components
 
-block variables
+//- block variables
 
-html(lang="ru")
+html(lang="en")
   head
-    title= title
+    title Global
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    meta(name="description", content="ProjectName — описание")
-    //- генерируйте favicon тут - https://realfavicongenerator.net/
-    //- в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"
-
-    //- используйте только для шрифта находящегося на первом экране
-    //- link(rel="preload", href="fonts/placeholder.woff2", as="font", crossorigin="anonymous")
+    meta(name="description", content="Global")
+    link(rel="icon" type="image/png" sizes="40x40" href="../../../img/favicon.png")
+    link(rel="preload" href="../../../fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="../../../fonts/Poppins-Medium.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="../../../fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="../../../fonts/Roboto-Medium.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="../../../fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin)
     link(rel="stylesheet", href="css/style.min.css")
+  include ../components
 
   body
-    +sprite()
-    .wrapper(class=wrapperMods)
-      if (hasHeader)
-        +header(headerMods, currentUrl)
-
-      block main
-
-      if (hasFooter)
-        +footer(footerMods)
-
-    block modals
+    header
+    main
+    footer
 
     script(src="js/vendor.min.js")
     script(src="js/main.min.js")
