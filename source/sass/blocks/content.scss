@@ -44,8 +44,21 @@
     br:first-child {
       display: none;
     }
-
+    max-width: 600px;
     margin-right: 0;
+  }
+}
+
+.content-txt__link {
+  color: $orange-color;
+  display: inline-block;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
   }
 }
 
@@ -85,14 +98,18 @@
       line-height: 19px;
       letter-spacing: 0.01em;
       color: $placeholder-color;
+
+      @media (max-width: $vp-768) {
+        font-size: 12px;
+      }
     }
   }
 }
 
 .content-txt__serch {
   position: absolute;
-  margin-left: -65px;
-  margin-top: 5px;
+  margin-left: -60px;
+  margin-top: 3px;
   border-radius: 50px;
   width: 55px;
   height: 55px;
@@ -101,5 +118,19 @@
     position: absolute;
     top: 15px;
     left: 15px;
+  }
+}
+
+.content__illustration {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -12px;
+
+  @media (max-width: $vp-1280)  {
+    width: 100%;
   }
 }

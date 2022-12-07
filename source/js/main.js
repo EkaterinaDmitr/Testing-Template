@@ -27,23 +27,25 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Mobile menu
 
-document.querySelector('.burger').addEventListener('click', function () {
-  document.querySelector('.burger span').classList.toggle('active');
+document.querySelector('.header__burger').addEventListener('click', function () {
+  document.querySelector('.header__burger span').classList.toggle('active');
   document.querySelector('.menu__list').classList.toggle('animate');
-  document.querySelector('body').classList.toggle('open-menu');
+  document.querySelector('body').classList.toggle('menu-open');
 });
 
+// Countries appear
 
 function appearCountries() {
-  const countryCircles = document.querySelectorAll('.circle__country');
-  const orbit = document.querySelector('.illustration__circle');
+  const countryCircles = document.querySelectorAll('.illustration__country-flag');
+  const orbit = document.querySelector('.illustration__country');
   const countries = ['1', '2', '3', '4', '5'];
   const renderCountries = new Promise((resolve) => {
     setTimeout(() => {
       countryCircles.forEach((item, i) => {
         setTimeout(() => {
-          item.classList.add(`circle__country--active--${countries[i]}`);
+          item.classList.add(`illustration__country-flag--active--${countries[i]}`);
           // eslint-disable-next-line no-unused-expressions
           i === countries.length - 1 ? resolve() : null;
         }, i * 400);
@@ -63,6 +65,7 @@ function appearCountries() {
 
 appearCountries();
 
+// Validate
 
 const MIN_NAME_LENGTH = 4;
 const MAX_NAME_LENGTH = 12;
@@ -92,6 +95,29 @@ searcHeaderInput.addEventListener('input', () => {
 searcHeaderInput.addEventListener('input', function () {
   this.value = this.value.replace(stopSumb, '');
 });
+
+
+// Description render
+
+fetch('https://baconipsum.com/api/?type=lucky')
+
+    .then(function (resp) { return resp.json(); })
+    .then(function (randomtext) {
+
+      setTimeout(function () {
+
+        setInterval(function () {
+          let description = document.querySelector('.content-txt__description');
+          description.textContent = randomtext[Math.floor(Math.random() * randomtext.length)];
+
+        }, 4000);
+
+      }, 1000);
+
+    })
+    .catch(function () {
+    });
+
 
 // ---------------------------------
 
